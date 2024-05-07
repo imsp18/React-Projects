@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [value, setValue] = useState("hex");
+  const [color, setColor] = useState("#000000");
+
+  function handleCreateRandomHexColor() {
+    const hex = "0123456789ABCDEF";
+    let hexColor = "#";
+
+    for (let i = 0; i < 6; i++) {
+      hexColor += hex[Math.floor(Math.random() * 16)];
+    }
+    setColor(hexColor);
+    console.log(hexColor);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        width: "100vw",
+        height: "100vh",
+        background: color,
+      }}
+    >
+      <button onClick={handleCreateRandomHexColor}>
+        Generate Random Color
+      </button>
     </div>
   );
 }
-
-export default App;
