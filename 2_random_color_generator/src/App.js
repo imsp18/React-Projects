@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function App() {
   const [value, setValue] = useState("hex");
@@ -20,8 +20,13 @@ export default function App() {
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
 
-    setColor(`(${r}, ${g}, ${b})`);
+    setColor(`rgb(${r}, ${g}, ${b})`);
   }
+
+  useEffect(() => {
+    if (value === "hex") handleCreateRandomHexColor();
+    else handleCreateRandomRgbColor();
+  }, [value]);
 
   return (
     <div
