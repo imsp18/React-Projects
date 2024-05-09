@@ -1,7 +1,10 @@
+import Joke from "./joke"
+
 export default function App() {
   return (
     <>
-      <div>hello</div>
+      <div>Joke Generator</div>
+      <Joke />
     </>
   )
 }
