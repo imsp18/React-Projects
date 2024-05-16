@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs'
 
 export default function App() {
   const url = 'https://picsum.photos/v2/list'
@@ -39,4 +40,29 @@ export default function App() {
     return <div>Error occured! {errorMsg}  bc</div>
   }
 
+  return <div className="container">
+    <BsArrowLeftCircleFill className="arrow arrow-left" />
+    {
+      images && images.length ?
+        images.map(imageItem => (
+          <img
+            key={imageItem.id}
+            alt={imageItem.download_url}
+            src={imageItem.download_url}
+          />
+        ))
+        : null}
+        <BsArrowRightCircleFill className="arrow arrow-right" />
+        <span className="circle-indicators">
+          {
+            images && images.length ?
+            images.map((_,index)=> <button
+            key={index}
+            className="current-indicator">
+              
+            </button>) :
+            null
+          }
+        </span>
+  </div>
 }
