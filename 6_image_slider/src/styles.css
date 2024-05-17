@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   width: 600px;
+  height: 450px;
 }
 
 .current-image {
@@ -31,11 +32,12 @@
 
 .circle-indicators {
   display: flex;
+  position: absolute;
   bottom: 1rem;
 }
 
 .current-indicator {
-  background-color: #fff;
+  background-color: #ffffff;
   height: 15px;
   width: 15px;
   border-radius: 50%;
@@ -43,4 +45,12 @@
   outline: none;
   margin: 0 0.2rem;
   cursor: pointer;
+}
+
+.hide-current-image{
+    display: none;
+}
+
+.inactive-indicator{
+    background-color: gray;
 }
