@@ -12,9 +12,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col items-center">
       <Header />
-      <main className="flex-grow container mx-auto p-4">
+      <main className=" mx-auto p-4">
         <AddExpenseForm onAddExpense={handleAddExpense} />
         <ExpenseList expenses={expenses} />
       </main>

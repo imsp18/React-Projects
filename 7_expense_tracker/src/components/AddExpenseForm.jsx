@@ -13,8 +13,9 @@ export default function AddExpenseForm({ onAddExpense }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-4 shadow rounded mb-4">
-      <div className="mb-2">
+    <form onSubmit={handleSubmit} className="flex flex-col  bg-white p-4 shadow-lg rounded mb-4">
+      <div className='flex gap-4'>
+        <div className="mb-2">
         <label className="block text-sm">Expense Name</label>
         <input
           type="text"
@@ -23,15 +24,15 @@ export default function AddExpenseForm({ onAddExpense }) {
           className="border p-2 w-full"
         />
       </div>
-      <div className="mb-2">
-        <label className="block text-sm">Amount</label>
-        <input
-          type="number"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          className="border p-2 w-full"
-        />
-      </div>
+        <div className="mb-2">
+          <label className="block text-sm">Amount</label>
+          <input
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            className="border p-2 w-full"
+          />
+        </div></div>
       <button type="submit" className="bg-blue-500 text-white p-2 rounded">
         Add Expense
       </button>
