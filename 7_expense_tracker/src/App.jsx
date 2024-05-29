@@ -11,12 +11,16 @@ export default function App() {
     setExpenses([...expenses, expense]);
   };
 
+  const removeExpense = (id) => {
+    setExpenses(expenses.filter(expense => expense.id !== id))
+  }
+
   return (
     <div className="min-h-screen flex flex-col items-center">
       <Header />
       <main className=" mx-auto p-4">
         <AddExpenseForm onAddExpense={handleAddExpense} />
-        <ExpenseList expenses={expenses} />
+        <ExpenseList expenses={expenses} onRemove={removeExpense} />
       </main>
     </div>
   );
