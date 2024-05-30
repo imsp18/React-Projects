@@ -1,6 +1,6 @@
 // src/App.jsx
 import { useState } from 'react';
-import Header from './components/Header';
+import Budget from './components/Budget';
 import ExpenseList from './components/ExpenseList';
 import AddExpenseForm from './components/AddExpenseForm';
 
@@ -17,7 +17,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen max-sm:flex-col flex justify-center gap-2 max-sm:items-center items-start mt-24">
-      <Header expenses={expenses}/>
+      <Budget expenses={expenses}/>
       <main className="p-4">
         <AddExpenseForm onAddExpense={handleAddExpense} />
         <ExpenseList expenses={expenses} onRemove={removeExpense} />

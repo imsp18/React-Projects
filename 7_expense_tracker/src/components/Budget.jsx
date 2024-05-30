@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-export default function Header({ expenses }) {
+export default function Budget({ expenses }) {
     const [budget, setBudget] = useState(0);
     const [remaining, setRemaining] = useState(0);
     const [budgetInput, setBudgetInput] = useState('');
