@@ -5,7 +5,6 @@ export default function Budget({ expenses }) {
     const [remaining, setRemaining] = useState(0);
     const [budgetInput, setBudgetInput] = useState('');
     const [totalExpenses, setTotalExpenses] = useState(0);
-
     const handleSubmit = (e) => {
         if (budgetInput > 0) {
             e.preventDefault();
@@ -27,7 +26,7 @@ export default function Budget({ expenses }) {
     return (
         <div className="flex flex-col items-start justify-center  font-sans">
             <div className="text-3xl mt-4 px-4">Set Your Budget</div>
-            <div className=" flex flex-col p-4 m-4 gap-4 bg-gray-200 border border-gray-500 rounded-lg">
+            <div className=" flex flex-col p-4 m-4 gap-4 bg-gray-200 border border-gray-500 shadow-lg rounded-lg">
                 <form onSubmit={handleSubmit} className="flex items-center gap-2 mb-4">
                     <label className="font-medium">Set Budget:</label>
                     <input
@@ -39,7 +38,10 @@ export default function Budget({ expenses }) {
                     />
                     <button type="submit" className="bg-blue-500 text-sm text-white px-2 py-1 rounded">Set</button>
                 </form>
-                <div className="p-4 bg-blue-200 border border-blue-500 rounded-md">Budget: ₹{budget}</div>
+                <div className=" flex justify-between p-4 bg-blue-200 border border-blue-500 rounded-md">
+                    <label>Budget: ₹{budget}</label>
+                    <button className="bg-blue-500 text-sm text-white px-2 py-1 rounded " >Edit</button>
+                </div>
                 <div className="p-4 bg-green-200 border border-green-500 rounded-md">Remaining: ₹{remaining}</div>
                 <div className="p-4 bg-red-200 border border-red-500 rounded-md">Expense: ₹{totalExpenses}</div>
             </div>
