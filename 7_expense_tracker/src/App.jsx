@@ -16,9 +16,9 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center">
+    <div className="min-h-screen max-sm:flex-col flex justify-center gap-2 max-sm:items-center items-start mt-24">
       <Header expenses={expenses}/>
-      <main className=" mx-auto p-4">
+      <main className="p-4">
         <AddExpenseForm onAddExpense={handleAddExpense} />
         <ExpenseList expenses={expenses} onRemove={removeExpense} />
       </main>

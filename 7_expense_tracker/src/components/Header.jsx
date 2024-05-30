@@ -1,15 +1,20 @@
 import { useState, useEffect } from "react"
 
-export default function Header({expenses}) {
+export default function Header({ expenses }) {
     const [budget, setBudget] = useState(0);
     const [remaining, setRemaining] = useState(0);
     const [budgetInput, setBudgetInput] = useState('');
     const [totalExpenses, setTotalExpenses] = useState(0);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        setBudget(parseFloat(budgetInput));
-        setBudgetInput('');
+        if (budgetInput > 0) {
+            e.preventDefault();
+            setBudget(parseFloat(budgetInput));
+            setBudgetInput('');
+        } else {
+            alert('Please enter a valid budget.')
+        }
+
     };
 
     useEffect(() => {
@@ -20,8 +25,8 @@ export default function Header({expenses}) {
 
 
     return (
-        <div className="flex flex-col items-center justify-center  font-sans">
-            <div className="text-3xl mt-4">Expense Tracker App</div>
+        <div className="flex flex-col items-start justify-center  font-sans">
+            <div className="text-3xl mt-4 px-4">Set Your Budget</div>
             <div className=" flex flex-col p-4 m-4 gap-4 bg-gray-200 border border-gray-500 rounded-lg">
                 <form onSubmit={handleSubmit} className="flex items-center gap-2 mb-4">
                     <label className="font-medium">Set Budget:</label>
@@ -30,6 +35,7 @@ export default function Header({expenses}) {
                         value={budgetInput}
                         onChange={(e) => setBudgetInput(e.target.value)}
                         className="bg-transparent border border-black rounded-sm p-1"
+                        placeholder="Enter your budget"
                     />
                     <button type="submit" className="bg-blue-500 text-sm text-white px-2 py-1 rounded">Set</button>
                 </form>

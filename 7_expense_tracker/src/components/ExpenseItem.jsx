@@ -6,6 +6,7 @@ export default function ExpenseItem({ expense, onRemove }) {
 
     return (
         <div className="flex items-center justify-between bg-white p-4 shadow mb-2 rounded">
+            
             <div>{expense.name}</div>
             <div className="flex gap-3 items-center">
                 <div className="text-blue-500">₹ {expense.amount}</div>
