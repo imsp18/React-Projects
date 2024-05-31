@@ -22,9 +22,9 @@
 
 
     return (
-      <div>
-        <div className='flex'>
-          <div className="p-4">
+      <div className=' bg-gray-200 border m-4 border-gray-500 rounded-lg p-4 shadow-lg mb-2'>
+        <div className='flex max-sm:flex-col'>
+          <div className="p-2">
             <label className="block text-md p-1 font-semibold">Search Expenses:</label>
             <input
               type="text"
@@ -34,15 +34,16 @@
               placeholder="Search expenses"
             />
           </div>
-          <div className="p-4">
+          <div className="p-2">
             <label className="block text-md p-1 font-semibold">Filter by Payment Method:</label>
-            <select value={paymentFilter} onChange={handleFilterChange} className="p-2 border border-gray-300 rounded">
-              <option value="all">All</option>
-              <option value="cash">Cash</option>
-              <option value="upi">UPI</option>
+            <select value={paymentFilter} onChange={handleFilterChange} className="p-2 border border-black bg-transparent rounded">
+              <option className='bg-transparent ' value="all" >All</option>
+              <option className='bg-transparent ' value="cash">Cash</option>
+              <option className='bg-transparent ' value="upi">UPI</option>
             </select>
           </div>
         </div>
+        <div className='my-1 h-0.5 border-t bg-neutral-100'></div>
         {filteredExpenses.length > 0 ? (
         filteredExpenses.map(expense => (
           <ExpenseItem key={expense.id} expense={expense} onRemove={onRemove} />

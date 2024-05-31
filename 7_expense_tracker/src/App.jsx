@@ -16,12 +16,14 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen max-sm:flex-col flex justify-center gap-2 max-sm:items-center items-start mt-24">
-      <Budget expenses={expenses}/>
-      <main className="p-4">
+    <div className="min-h-screen max-sm:flex-col flex mx-10 gap-2 max-sm:items-center items-start">
+      <div className='p-2'>
+        <Budget expenses={expenses} />
         <AddExpenseForm onAddExpense={handleAddExpense} />
+      </div>
+      <div className="flex justify-start items-start ">
         <ExpenseList expenses={expenses} onRemove={removeExpense} />
-      </main>
+      </div>
     </div>
   );
 }
